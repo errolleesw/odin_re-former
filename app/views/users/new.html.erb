@@ -1,0 +1,69 @@
+<h1>Create new user</h1>
+
+<!-- STANDARD HTML FORM -->
+<!-- 
+<form action="/users" method="post" accept-charset="utf-8">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>" />
+
+  <div>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="user[username]" required>
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="user[email]" required>
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="user[password]" required>
+  </div>
+  <div>
+    <input type="submit" value="Create User">
+  </div>
+  
+</form>
+-->
+
+<!-- USING FORM_TAG HELPER -->
+<!--
+<%= form_tag users_path do %>
+  <div>
+    <%= label_tag "user[username]", 'Username:' %>
+    <%= text_field_tag "user[username]", nil, required: true %>
+  </div>
+  <div>
+    <%= label_tag "user[email]", 'Email:' %>
+    <%= email_field_tag "user[email]", nil, required: true %>
+  </div>
+  <div>
+    <%= label_tag "user[password]", 'Password:' %>
+    <%= password_field_tag "user[password]", nil, required: true %>
+  </div>
+  <%= submit_tag 'Create User' %>
+<% end %>
+-->
+
+<!-- USING FORM_WITH HELPER -->
+<!--
+<%= form_with(model: @user, local: true) do |form| %>
+  <div>
+    <%= form.label :username, 'Username:' %>
+    <%= form.text_field :username, required: true %>
+  </div>
+  <div>
+    <%= form.label :email, 'Email:' %>
+    <%= form.email_field :email, required: true %>
+  </div>
+  <div>
+    <%= form.label :password, 'Password:' %>
+    <%= form.password_field :password, required: true %>
+  </div>
+  <%= form.submit 'Create User' %>
+<% end %>
+-->
+
+<!-- USING PARTIAL ERB -->
+<%= render 'form', user: @user %>
+
+
+

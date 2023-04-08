@@ -16,8 +16,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       # session[:user_id] = @user.id
+      flash[:success] = 'User was successfully created.'
       redirect_to @user
     else
+      flash[:error] = @user.errors.full_messages.join(', ')
       render :new, status: :unprocessable_entity
     end
   end
